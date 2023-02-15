@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tags on Nathan&#39;s Markdown Site</title>
+    <link>https://nathanyor.io/tags/tags/</link>
+    <description>Recent content in tags on Nathan&#39;s Markdown Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Feb 2023 14:00:59 +0200</lastBuildDate><atom:link href="https://nathanyor.io/tags/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Testpost3</title>
+      <link>https://nathanyor.io/posts/testpost3/</link>
+      <pubDate>Wed, 15 Feb 2023 14:00:59 +0200</pubDate>
+      
+      <guid>https://nathanyor.io/posts/testpost3/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

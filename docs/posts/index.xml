@@ -1,19 +1,104 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://example.org/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>Posts on Nathan&#39;s Markdown Site</title>
+    <link>https://nathanyor.io/posts/</link>
+    <description>Recent content in Posts on Nathan&#39;s Markdown Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Feb 2023 16:41:13 +0200</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Feb 2023 14:01:15 +0200</lastBuildDate><atom:link href="https://nathanyor.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hello World</title>
-      <link>http://example.org/posts/hello-world/</link>
-      <pubDate>Fri, 10 Feb 2023 16:41:13 +0200</pubDate>
+      <title>Testpost8</title>
+      <link>https://nathanyor.io/posts/testpost8/</link>
+      <pubDate>Wed, 15 Feb 2023 14:01:15 +0200</pubDate>
       
-      <guid>http://example.org/posts/hello-world/</guid>
-      <description>Hello World Some test markdown just to see if the site generator is working correctly</description>
+      <guid>https://nathanyor.io/posts/testpost8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testpost7</title>
+      <link>https://nathanyor.io/posts/testpost7/</link>
+      <pubDate>Wed, 15 Feb 2023 14:01:12 +0200</pubDate>
+      
+      <guid>https://nathanyor.io/posts/testpost7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testpost6</title>
+      <link>https://nathanyor.io/posts/testpost6/</link>
+      <pubDate>Wed, 15 Feb 2023 14:01:09 +0200</pubDate>
+      
+      <guid>https://nathanyor.io/posts/testpost6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testpost5</title>
+      <link>https://nathanyor.io/posts/testpost5/</link>
+      <pubDate>Wed, 15 Feb 2023 14:01:05 +0200</pubDate>
+      
+      <guid>https://nathanyor.io/posts/testpost5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testpost4</title>
+      <link>https://nathanyor.io/posts/testpost4/</link>
+      <pubDate>Wed, 15 Feb 2023 14:01:03 +0200</pubDate>
+      
+      <guid>https://nathanyor.io/posts/testpost4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testpost3</title>
+      <link>https://nathanyor.io/posts/testpost3/</link>
+      <pubDate>Wed, 15 Feb 2023 14:00:59 +0200</pubDate>
+      
+      <guid>https://nathanyor.io/posts/testpost3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testpost2</title>
+      <link>https://nathanyor.io/posts/testpost2/</link>
+      <pubDate>Wed, 15 Feb 2023 14:00:56 +0200</pubDate>
+      
+      <guid>https://nathanyor.io/posts/testpost2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testpost1</title>
+      <link>https://nathanyor.io/posts/testpost1/</link>
+      <pubDate>Wed, 15 Feb 2023 14:00:53 +0200</pubDate>
+      
+      <guid>https://nathanyor.io/posts/testpost1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bingus</title>
+      <link>https://nathanyor.io/posts/bingus/</link>
+      <pubDate>Tue, 14 Feb 2023 16:02:29 +0200</pubDate>
+      
+      <guid>https://nathanyor.io/posts/bingus/</guid>
+      <description>test sdgsd
+dlksdjhgs;djgh</description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>https://nathanyor.io/posts/my-first-post/</link>
+      <pubDate>Tue, 14 Feb 2023 16:01:29 +0200</pubDate>
+      
+      <guid>https://nathanyor.io/posts/my-first-post/</guid>
+      <description>Test text
+italics bold bold
+Head 1 Head 2 Head 3 Head 4 Head 5  bullets bullets  this is a code quote
+if x { some_code_in-_here = &amp;#39;🔥&amp;#39; } </description>
     </item>
     
   </channel>
