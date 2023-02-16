@@ -1,9 +1,0 @@
-@font-face {
-  font-family: 'NotoSansJP-Light';
-  src: url(assets/NotoSansJP-Light.eot);
-  src: url(assets/NotoSansJP-Light.eot?#iefix) format('embedded-opentype'),
-       url(assets/NotoSansJP-Light.woff2) format('woff2'),
-       url(assets/NotoSansJP-Light.woff) format('woff'),
-       url(assets/NotoSansJP-Light.ttf) format('truetype'),
-       url(assets/NotoSansJP-Light.svg#NotoSansJP-Light) format('svg');
-}

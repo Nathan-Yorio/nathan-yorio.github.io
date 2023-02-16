@@ -1,14 +1,14 @@
 /* Fonts */
 /* @import url("notosansjp-black.css"); */
 
-@font-face {
+/* @font-face {
   font-family: 'NotoSansJP-Black';
   src: url(/fonts/NotoSansJP/NotoSansJP-Black.eot);
   src: url(/fonts/NotoSansJP/NotoSansJP-Black.eot?#iefix) format('embedded-opentype'),
         url(/fonts/NotoSansJP/NotoSansJP-Black.woff2) format('woff2'),
         url(/fonts/NotoSansJP/NotoSansJP-Black.woff) format('woff'),
         url(/fonts/NotoSansJP/NotoSansJP-Black.ttf) format('truetype');
-}
+} */
 
 @font-face {
   font-family: 'NotoSansJP-Bold';
@@ -19,14 +19,14 @@
         url(/fonts/NotoSansJP/NotoSansJP-Bold.ttf) format('truetype');
 }
 
-@font-face {
+/* @font-face {
   font-family: 'NotoSansJP-Thin';
   src: url(/fonts/NotoSansJP/NotoSansJP-Thin.eot);
   src: url(/fonts/NotoSansJP/NotoSansJP-Thin.eot?#iefix) format('embedded-opentype'),
         url(/fonts/NotoSansJP/NotoSansJP-Thin.woff2) format('woff2'),
         url(/fonts/NotoSansJP/NotoSansJP-Thin.woff) format('woff'),
         url(/fonts/NotoSansJP/NotoSansJP-Thin.ttf) format('truetype');
-}
+} */
 
 @font-face {
   font-family: 'NotoSansJP-Regular';
@@ -37,14 +37,14 @@
         url(/fonts/NotoSansJP/NotoSansJP-Regular.ttf) format('truetype');
 }
 
-@font-face {
+/* @font-face {
   font-family: 'NotoSansJP-Medium';
   src: url(/fonts/NotoSansJP/NotoSansJP-Medium.eot);
   src: url(/fonts/NotoSansJP/NotoSansJP-Medium.eot?#iefix) format('embedded-opentype'),
         url(/fonts/NotoSansJP/NotoSansJP-Medium.woff2) format('woff2'),
         url(/fonts/NotoSansJP/NotoSansJP-Medium.woff) format('woff'),
         url(/fonts/NotoSansJP/NotoSansJP-Medium.ttf) format('truetype');
-}
+} */
 
 @font-face {
   font-family: 'NotoSansJP-Light';
@@ -56,52 +56,116 @@
 }
 
 /* Forces the navbar to stick at the top of the page as you scroll */
-header {
-  position : sticky;
-	top :0;
-}
-
 
 /* Overall body formatting */
 
+html {
+  background-color: rgb(65, 101, 138);
+}
+
 body {
+  background-color: rgb(28, 184, 144);
   font-family: 'NotoSansJP-Medium';
-  color: rgb(255, 0, 174);
+  color: rgb(255, 255, 255);
   font-size: 125%;
   line-height: 1.5;
   max-width: 45rem;
-  padding: 1rem;
+  /* padding: 0.25rem; */
   margin: 0 auto;
 }
 
 /* NAVIGATION */
+  /* padding-right: auto;
+  padding-left: auto;
+  padding-bottom: auto;
+  padding-top: 0; */
+  /* border: 1px solid rgb(63, 75, 63); */
 
+
+
+/* the whole bar */
+.site-header{
+  font-family: 'NotoSansJP-Bold';
+  width: 100%;
+  /* background-color: rgb(175, 117, 149); */
+  background-color: rgb(175, 117, 149);
+  /* background-color: rgb(140, 72, 67); */
+  position : sticky;
+	top :0;
+  margin: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  /* padding: 0.5rem; */
+}
+
+
+/* just the text positioning in the bar */
 .site-nav {
   display: flex;
-  background: rgb(0, 255, 81);
-  padding: 0rem;
+  width: 100%;
+  /* margin-left: 50%;
+  margin-right: 50%;  */
+  /* width: 50%; */
+  /* border: 1px solid rgb(14, 14, 14); */
 }
 
-/* Distance of menu items apart */
-.site-nav a {
-  display: block;
-  padding: 1rem;
-}
-
-.site-nav .logo {
-  font-weight: bold;
-  display: flex;
-}
-
+/* home button + pages */
 .main-menu {
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  width: auto;
+  margin: auto;
+  /* list-style: none; */
+  /* margin: 0; */
+  /* border: 10px solid rgb(183, 175, 238); */
+  padding: 0rem;
+  /* margin: auto; */
 }
 
+/* just the home button portion */
+.home-button {
+  color:rgb(255, 255, 255);
+  text-decoration: none;
+  display: flex;
+  font-weight: bold;
+  margin: auto;
+  padding-inline: 0.5rem; 
+  width: 100%;
+  /* border: 1px solid rgb(157, 50, 143); */
+  /* background: rgb(231, 224, 147); */
+}
+
+.home-button:hover {
+  color:rgb(248, 51, 60);
+}
+
+
+.menu-buttons {
+  font-weight: bold;
+  display: inline-flex;
+  margin: auto;
+  padding-inline: 0.5rem; 
+  width: 100%;
+  /* border: 1px solid rgb(157, 50, 143); */
+  /* background: rgb(255, 21, 0); */
+}
+
+.menu-buttons a{
+  color:rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.menu-buttons a:hover{
+  color:rgb(248, 51, 60);
+  text-decoration: none;
+}
+
+
 /* Forces horizontal stacking when width is small enough */
-@media screen and (max-width: 20rem) {
+@media only screen and (max-width: 20rem) {
+  .main-menu {
+    flex-direction: column;
+  }
+/* 
   .site-nav,
   .main-menu {
     flex-direction: column;
@@ -110,23 +174,90 @@ body {
   .site-nav a {
     padding: 0.5rem;
     padding-left: 0;
-  }
+  } */
 }
 
 /* Content Formatting */
+.title-text{
+  font-family: 'NotoSansJP-Bold';
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  line-height: 1;
+}
 
+/* Markdown content styling */
 .content {
   font-family: 'NotoSansJP-Regular';
-  margin-bottom: 2rem;
-  padding: 1rem;
+  padding: 0.5rem;
+  /* background-color: aliceblue; */
 }
+
+/* links */
+.content a{
+  color: rgb(65, 101, 138);
+}
+
+/* hover link text */
+.content a:hover{
+  text-decoration: none;
+  color: rgb(244, 167, 210);
+}
+
+/* code block */
+/* for some reason, !important is needed in
+   order to get it to alter the css rendering */
+.highlight pre{
+  background-color: rgb(60, 31, 48) !important;
+}
+
+/* Articles */
+
 
 /* LISTS */
-
-.post-snippet {
-  margin-bottom: 1rem;
+.post-list{
+  padding-top: 0rem;
+  padding-left: 0rem;
+  margin: auto;
+  width: 50%;
+  text-align: center;
 }
 
-.post-snippet h3 {
-  margin-bottom: 0.25rem;
+
+.post-snippet {
+  /* margin: auto; */
+  line-height: 1;
+}
+
+.post-snippet h4 {
+  /* margin-bottom: 0.5rem;
+  padding: 1rem; */
+  padding: 0rem;
+}
+
+/* Link color styling */
+.post-snippet a {
+  color:rgb(245, 214, 235);
+}
+
+/* footer */
+.footer-text {
+  position : relative;
+  bottom: 0;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  color:rgb(24, 22, 23);
+  /* background-color: lightblue; */
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  /* border: 1px solid rgb(63, 75, 63); */
+}
+
+/* shortcode styling */
+
+
+img[src*='#center'] { 
+  display: block;
+  margin: auto;
 }
