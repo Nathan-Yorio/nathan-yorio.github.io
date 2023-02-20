@@ -195,21 +195,45 @@ body {
 
 /* links */
 .content a{
-  color: rgb(65, 101, 138);
+  color: rgb(154, 201, 248);
 }
 
 /* hover link text */
 .content a:hover{
-  text-decoration: none;
   color: rgb(244, 167, 210);
 }
+
+/* ! Markdown text decoration styling */
+/* italics when using center-text */
+.center-text em {
+  color:rgb(247, 245, 146) !important;
+}
+
+/* bold when using center-text */
+.center-text strong {
+  color:rgb(248, 192, 26) !important;
+}
+
 
 /* code block */
 /* for some reason, !important is needed in
    order to get it to alter the css rendering */
 .highlight pre{
   background-color: rgb(60, 31, 48) !important;
+  box-sizing: border-box;
+  padding: 10px;
 }
+
+/* inline code in general */
+code{
+  display: inline-block;
+  background-color: rgb(60, 31, 48) !important;
+  padding: 3px;
+}
+
+
+/* ! ====================================== */
+
 
 /* Articles */
 
@@ -235,12 +259,18 @@ body {
   padding: 0rem;
 }
 
-/* Link color styling */
+/* ! Link color styling */
 .post-snippet a {
-  color:rgb(245, 214, 235);
+
+  color:rgb(240, 207, 225);
 }
 
-/* footer */
+.post-snippet a:hover {
+  color:rgb(175, 117, 149);
+}
+
+
+/* ! footer */
 .footer-text {
   position : relative;
   bottom: 0;
@@ -254,10 +284,43 @@ body {
   /* border: 1px solid rgb(63, 75, 63); */
 }
 
-/* shortcode styling */
 
+/* ! Image alignment styles */
+/* ? Syntax is like so: */
+/* ![](spinning-ball.webp#center) */
 
+/* ? image is exactly centered */
 img[src*='#center'] { 
   display: block;
   margin: auto;
 }
+
+/* ? image is left-aligned on its own line */
+img[src*='#left'] { 
+  display: block;
+  margin: 0%;
+}
+
+/* ? Text wraps right around left-aligned image */
+img[src*='#left-float'] { 
+  float: left;
+}
+
+/* ? Image is right-aligned on its own line */
+img[src*='#right'] { 
+  display: block;
+  margin-left: auto;
+}
+
+/* ? Text wraps left around right-aligned image */
+img[src*='#right-float'] { 
+  float: right;
+}
+
+/* ! ====================================== */
+
+.center-text {
+  text-align:center;
+}
+
+/* shortcode styling */

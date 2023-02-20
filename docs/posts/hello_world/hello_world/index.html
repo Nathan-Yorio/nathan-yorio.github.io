@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	
+	<title>Hello World. | nathanyor.io</title>
+
+	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+
+	</head>
+
+
+
+
+    <body> 
+        <header class="site-header">
+    <nav class="site-nav">
+      
+
+      
+      <ul class="main-menu">
+        
+        <a class="home-button" href="https://nathanyor.io">HOME</a>
+        
+        
+        <li class="menu-buttons">
+          <a href="/posts">POSTS</a>
+        </li>
+        
+        <li class="menu-buttons">
+          <a href="/tags">TAGS</a>
+        </li>
+        
+        <li class="menu-buttons">
+          <a href="/about">ABOUT</a>
+        </li>
+        
+      </ul>
+    </nav>
+</header>
+
+
+        <div class="title-text">
+    <h1>Hello World.</h1>
+</div>
+        
+<main class="content">
+    
+    <h2 class="center-text" id="how-does-it-all-start">How does it all start?</h2>
+<p>I suppose the best &ldquo;Hello World&rdquo; post is one that explains some of the effort that went into making this static site and the rationale behind its existence.</p>
+<p>Before I decided to build this I had several set criteria for creating a site:</p>
+<ol>
+<li>&ldquo;Simplicity&rdquo;</li>
+<li>Cheap or free to deploy</li>
+<li>Highly-customizable</li>
+<li>Lightweight (as in load times)</li>
+</ol>
+<h4 class="center-text" id="heading"><strong>⛬</strong></h4>
+<h2 class="center-text" id="simplicity---whatever-that-means-">&ldquo;Simplicity&rdquo; - whatever that means 🤷</h2>
+<p>In my head, before putting this together, simplicity    just meant &ldquo;static&rdquo;. Something that I wouldn&rsquo;t have to rely on any dynamic web components in order to stand up and have available quickly. This isn&rsquo;t because I don&rsquo;t wish to have cool dynamic content, but rather because that sort of a setup usually either costs money or is more difficult to maintain over time. Which leads me to&hellip;</p>
+<h2 class="center-text" id="cheap-or-free-to-deploy">Cheap or free to deploy</h2>
+<p>I think one of the greatest barriers to entry for many who may want to create anything on the web is the idea that they&rsquo;ll have to pay a lot for it. Self-hosting a website can potentially come with an additional cost. After spending a lot of time at my job using AWS, I knew that the hassle of maintaining the cost of an implementation like that is more than I want to deal with as an individual, let alone an enterprise with the finances for it. Sure, one can set up billing alerts, Cloudformation script for minimal infra, and make sure everything is static in an S3 bucket, but it still felt like more than I wanted to deal with for stress-free content delivery.</p>
+<p>Even pre-templated websites that make the process of standing something up easier (like Wordpress the website, not the self-hostable solution) tend to lock their fancier features behind a paywall. It totally makes sense to me for somebody to go this route if they can&rsquo;t be bothered, but I love being able to fine-tune things to my heart&rsquo;s content (more about that below).</p>
+<p>So the way I saw it at this point was I would either:</p>
+<ul>
+<li>host a web server locally in my home</li>
+<li>find some other service that can serve my static content for free or cheap</li>
+</ul>
+<p>I chose not to host it locally for both not dealing with the hassle of additional security for my home network and because of the potential for unreliability, like a power outage here.</p>
+<p>I spent some time thinking about blog-like websites that I am a fan of recently and one that came to mind was <a href="https://book.hacktricks.xyz/welcome/readme">Hacktricks</a>. When I stand on his page, I can see that the page is &ldquo;Powered by Gitbook&rdquo; and that led me down the Github Pages rabbit hole.</p>
+<p><a href="https://pages.github.com/">Github Pages</a> is excellent for several reasons.</p>
+<ul>
+<li>I already use github, cool</li>
+<li>the free version repo can&rsquo;t be private (but this site is static and everything on it is open anyway, so I have no backend to hide or secure)</li>
+<li>It offers DNS CNAME routing for me to have a nice custom domain</li>
+</ul>
+<p>At the end of the day, if this turns out not to work well, the site is static and I can always move it somewhere else in the future if I want to spend more money or find a better server.</p>
+<p>So, for now, on Github Pages we reside.</p>
+<h2 class="center-text" id="highly-customizable">Highly-customizable</h2>
+<p>Frankly, I just wanted to learn some CSS and HTML so I went with an option that would allow me to literally create a custom site and theme completely from scratch.</p>
+<p>I love the <a href="https://obsidian.md/">Obsidian Markdown</a> editor and have been using it religiously for several years now. Since I&rsquo;ve already developed a strong habit of writing all of my notes in markdown, I searched around for a way that I could have a static site using it as well. The biggest name in the game for this is clearly <a href="https://gohugo.io/">Hugo</a> and I didn&rsquo;t really even think twice about going for it once I watched a few tutorials on how convenient it makes page generation.</p>
+<p>Thus, Hugo is my site &ldquo;backend&rdquo; and from the bare-bones theming support I have been teaching myself a lot about CSS, HTML, and re-usable web elements that are all over this site now.</p>
+<p>I think it&rsquo;s awesome that I can just say, create a class, style it and apply it to all of my documents like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">center-text</span> {
+<span style="color:#66d9ef">text-align</span>:<span style="color:#66d9ef">center</span>;
+}
+
+.<span style="color:#a6e22e">center-text</span> <span style="color:#f92672">em</span> {
+<span style="color:#66d9ef">color</span>:rgb(<span style="color:#ae81ff">247</span>, <span style="color:#ae81ff">245</span>, <span style="color:#ae81ff">146</span>) <span style="color:#75715e">!important</span>;
+}
+
+<span style="color:#75715e">/* bold when using center-text */</span>
+.<span style="color:#a6e22e">center-text</span> <span style="color:#f92672">strong</span> {
+<span style="color:#66d9ef">color</span>:rgb(<span style="color:#ae81ff">248</span>, <span style="color:#ae81ff">192</span>, <span style="color:#ae81ff">26</span>) <span style="color:#75715e">!important</span>;
+}
+</code></pre></div><p>Slap it on any markdown with styling tags:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md"><span style="color:#75715e">## Highly-customizable {.center-text}
+</span></code></pre></div><p>And go from:</p>
+<h2 id="this">This</h2>
+<p>to&hellip;..</p>
+<h2 class="center-text" id="this-1">This</h2>
+<p>or</p>
+<h4 class="center-text" id="this-2"><em>This?</em></h4>
+<p>Maybe this is comically obvious to people who do web design, but the fact that these elements are re-usable I think is fantastic and I&rsquo;m actually pretty stoked to learn more tricks and perhaps share them here.</p>
+<h2 class="center-text" id="lightweight-as-in-load-times">Lightweight (as in load times)</h2>
+<p>This one&rsquo;s simple. Static sites are blazingly fast. They don&rsquo;t have to talk to a backend. They don&rsquo;t have to load up anything crazy or even have javascript if you don&rsquo;t want them to. For this reason also Hugo made perfect sense to me.</p>
+<h4 class="center-text" id="heading-1"><strong>⛬</strong></h4>
+<p>To wrap, I also really just wanted to flex some creative energy in a nerdy way that would force me to learn some new things.</p>
+<p>Like, just this week I learned how to make animations in <a href="https://www.aseprite.org/">Aseprite</a>, which I&rsquo;d been putting off for ages. And that&rsquo;s allowed me to make cool things like:</p>
+<p><img src="../../../spinning-ball.webp#center" alt="this"></p>
+<h6 class="center-text" id="this-spinning-ball">This spinning ball</h6>
+<p>Here&rsquo;s to more of this kind of thing</p>
+
+</main>
+        
+
+<footer>
+	<p class="footer-text">
+		
+		nathanyor.io - 2023 
+	</p>
+</footer>
+
+
+    </body>
+</html>

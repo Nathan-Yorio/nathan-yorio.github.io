@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on nathanyor.io</title>
-    <link>https://nathanyor.io/</link>
-    <description>Recent content in Home on nathanyor.io</description>
+    <title>site on nathanyor.io</title>
+    <link>https://nathanyor.io/tags/site/</link>
+    <description>Recent content in site on nathanyor.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Feb 2023 18:37:59 +0200</lastBuildDate><atom:link href="https://nathanyor.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Feb 2023 18:37:59 +0200</lastBuildDate><atom:link href="https://nathanyor.io/tags/site/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello World.</title>
       <link>https://nathanyor.io/posts/hello_world/hello_world/</link>
@@ -16,15 +16,6 @@
       <description>How does it all start? I suppose the best &amp;ldquo;Hello World&amp;rdquo; post is one that explains some of the effort that went into making this static site and the rationale behind its existence.
 Before I decided to build this I had several set criteria for creating a site:
  &amp;ldquo;Simplicity&amp;rdquo; Cheap or free to deploy Highly-customizable Lightweight (as in load times)  ⛬ &amp;ldquo;Simplicity&amp;rdquo; - whatever that means 🤷 In my head, before putting this together, simplicity just meant &amp;ldquo;static&amp;rdquo;.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://nathanyor.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nathanyor.io/about/</guid>
-      <description>Here&amp;rsquo;s a bit about me.</description>
     </item>
     
   </channel>

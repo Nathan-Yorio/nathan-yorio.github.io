@@ -6,99 +6,16 @@
     <description>Recent content on nathanyor.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Feb 2023 14:01:15 +0200</lastBuildDate><atom:link href="https://nathanyor.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Feb 2023 18:37:59 +0200</lastBuildDate><atom:link href="https://nathanyor.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Testpost8</title>
-      <link>https://nathanyor.io/posts/testpost8/</link>
-      <pubDate>Wed, 15 Feb 2023 14:01:15 +0200</pubDate>
+      <title>Hello World.</title>
+      <link>https://nathanyor.io/posts/hello_world/hello_world/</link>
+      <pubDate>Sun, 19 Feb 2023 18:37:59 +0200</pubDate>
       
-      <guid>https://nathanyor.io/posts/testpost8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Testpost7</title>
-      <link>https://nathanyor.io/posts/testpost7/</link>
-      <pubDate>Wed, 15 Feb 2023 14:01:12 +0200</pubDate>
-      
-      <guid>https://nathanyor.io/posts/testpost7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Testpost6</title>
-      <link>https://nathanyor.io/posts/testpost6/</link>
-      <pubDate>Wed, 15 Feb 2023 14:01:09 +0200</pubDate>
-      
-      <guid>https://nathanyor.io/posts/testpost6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Testpost5</title>
-      <link>https://nathanyor.io/posts/testpost5/</link>
-      <pubDate>Wed, 15 Feb 2023 14:01:05 +0200</pubDate>
-      
-      <guid>https://nathanyor.io/posts/testpost5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Testpost4</title>
-      <link>https://nathanyor.io/posts/testpost4/</link>
-      <pubDate>Wed, 15 Feb 2023 14:01:03 +0200</pubDate>
-      
-      <guid>https://nathanyor.io/posts/testpost4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Testpost3</title>
-      <link>https://nathanyor.io/posts/testpost3/</link>
-      <pubDate>Wed, 15 Feb 2023 14:00:59 +0200</pubDate>
-      
-      <guid>https://nathanyor.io/posts/testpost3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Testpost2</title>
-      <link>https://nathanyor.io/posts/testpost2/</link>
-      <pubDate>Wed, 15 Feb 2023 14:00:56 +0200</pubDate>
-      
-      <guid>https://nathanyor.io/posts/testpost2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Testpost1</title>
-      <link>https://nathanyor.io/posts/testpost1/</link>
-      <pubDate>Wed, 15 Feb 2023 14:00:53 +0200</pubDate>
-      
-      <guid>https://nathanyor.io/posts/testpost1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bingus</title>
-      <link>https://nathanyor.io/posts/bingus/</link>
-      <pubDate>Tue, 14 Feb 2023 16:02:29 +0200</pubDate>
-      
-      <guid>https://nathanyor.io/posts/bingus/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam. In eu mi bibendum neque egestas congue quisque. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae. Gravida dictum fusce ut placerat orci nulla pellentesque dignissim. Mauris cursus mattis molestie a iaculis at erat. Eget duis at tellus at urna condimentum mattis. Felis donec et odio pellentesque diam volutpat commodo sed.</description>
-    </item>
-    
-    <item>
-      <title>My First Post　ー　日本語テスト</title>
-      <link>https://nathanyor.io/posts/my-first-post/</link>
-      <pubDate>Tue, 14 Feb 2023 16:01:29 +0200</pubDate>
-      
-      <guid>https://nathanyor.io/posts/my-first-post/</guid>
-      <description>website link 日本語テスト
-ūį„š„ūėšėtototo Test text
-italics bold bold
-Head 1 Head 2 Head 3 Head 4 Head 5  bullets bullets  this is a code quote
-if x { some_code_in-_here = &amp;#39;🔥&amp;#39; } </description>
+      <guid>https://nathanyor.io/posts/hello_world/hello_world/</guid>
+      <description>How does it all start? I suppose the best &amp;ldquo;Hello World&amp;rdquo; post is one that explains some of the effort that went into making this static site and the rationale behind its existence.
+Before I decided to build this I had several set criteria for creating a site:
+ &amp;ldquo;Simplicity&amp;rdquo; Cheap or free to deploy Highly-customizable Lightweight (as in load times)  ⛬ &amp;ldquo;Simplicity&amp;rdquo; - whatever that means 🤷 In my head, before putting this together, simplicity just meant &amp;ldquo;static&amp;rdquo;.</description>
     </item>
     
   </channel>
