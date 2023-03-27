@@ -135,7 +135,8 @@ body {
 }
 
 .home-button:hover {
-  color:rgb(248, 51, 60);
+  color:rgb(248, 192, 26);
+  transition: color 0.5s;
 }
 
 
@@ -155,8 +156,9 @@ body {
 }
 
 .menu-buttons a:hover{
-  color:rgb(248, 51, 60);
+  color:rgb(248, 192, 26);
   text-decoration: none;
+  transition: color 0.5s;
 }
 
 
@@ -195,12 +197,12 @@ body {
 
 /* links */
 .content a{
-  color: rgb(154, 201, 248);
+  color: rgb(246, 212, 149);
 }
 
 /* hover link text */
 .content a:hover{
-  color: rgb(244, 167, 210);
+  color: rgb(65, 101, 138);
 }
 
 /* ! Markdown text decoration styling */
@@ -211,24 +213,29 @@ body {
 
 /* bold when using center-text */
 .center-text strong {
-  color:rgb(248, 192, 26) !important;
+  color:rgb(247, 192, 26) !important;
 }
 
+em {
+  color:rgb(247, 245, 146) !important;
+}
 
 /* code block */
 /* for some reason, !important is needed in
    order to get it to alter the css rendering */
 .highlight pre{
-  background-color: rgb(60, 31, 48) !important;
+  background-color: rgb(46, 70, 94) !important;
   box-sizing: border-box;
   padding: 10px;
 }
 
 /* inline code in general */
+/* https://stackoverflow.com/questions/41238148/how-to-wrap-long-lines-inside-of-markdown-code-in-github-and-gitlab-issu */
 code{
   display: inline-block;
-  background-color: rgb(60, 31, 48) !important;
+  background-color: rgb(46, 70, 94)!important;
   padding: 3px;
+  white-space : pre-wrap !important;
 }
 
 
@@ -266,7 +273,8 @@ code{
 }
 
 .post-snippet a:hover {
-  color:rgb(175, 117, 149);
+  color:rgb(65, 101, 138);
+  /* transition: color 0.2s; */
 }
 
 
@@ -324,3 +332,17 @@ img[src*='#right-float'] {
 }
 
 /* shortcode styling */
+/* https://gohugo.io/content-management/shortcodes/#figure */
+.centerfig{
+  text-align: center;
+  margin: auto;
+  display: block;
+}
+
+
+/* Centered Buy me a coffee button */
+.bmc-btn-container {
+  text-align: center;
+  margin: auto;
+  display: block;
+}
