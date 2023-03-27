@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on nathanyor.io</title>
+    <link>https://nathanyor.io/tags/web/</link>
+    <description>Recent content in web on nathanyor.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Mar 2023 12:03:36 +0300</lastBuildDate><atom:link href="https://nathanyor.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generating Webfonts</title>
+      <link>https://nathanyor.io/posts/2023-03-27-generating-webfonts/generating_webfonts/</link>
+      <pubDate>Mon, 27 Mar 2023 12:03:36 +0300</pubDate>
+      
+      <guid>https://nathanyor.io/posts/2023-03-27-generating-webfonts/generating_webfonts/</guid>
+      <description>&amp;ldquo;Not all fonts are created equal&amp;rdquo;  See the following links for some accompanying code:  NotoSansJP-Webfonts Github Repo Webfont Generator POM Fix 2023 Github Repo   So, as it turns out, fonts don&amp;rsquo;t work the same way everywhere. They are different sizes and different formats for different platforms.
+I discovered while created this static site that if I wanted to have a fancy font that supports Japanese characters, like NotoSansJP, I would need to either source the font directly from Google (which would require me to rely on Google&amp;rsquo;s resource never changing), or convert the OS level font to something that is called a &amp;ldquo;Webfont&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

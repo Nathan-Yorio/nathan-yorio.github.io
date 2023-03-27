@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	
+	<title>Generating Webfonts | nathanyor.io</title>
+
+	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+
+	</head>
+
+
+
+
+    <body> 
+        <header class="site-header">
+    <nav class="site-nav">
+      
+
+      
+      <ul class="main-menu">
+        
+        <a class="home-button" href="https://nathanyor.io">HOME</a>
+        
+        
+        <li class="menu-buttons">
+          <a href="/posts">POSTS</a>
+        </li>
+        
+        <li class="menu-buttons">
+          <a href="/tags">TAGS</a>
+        </li>
+        
+        <li class="menu-buttons">
+          <a href="/about">ABOUT</a>
+        </li>
+        
+      </ul>
+    </nav>
+</header>
+
+
+        <div class="title-text">
+    <h1>Generating Webfonts</h1>
+</div>
+        
+<main class="content">
+    
+    <h5 class="center-text" id="not-all-fonts-are-created-equal"><em>&ldquo;Not all fonts are created equal&rdquo;</em> </h5>
+<h5 id="see-the-following-links-for-some-accompanying-code">See the following links for some accompanying code:</h5>
+<ul>
+<li><a href="https://github.com/Nathan-Yorio/NotoSansJP-Webfonts">NotoSansJP-Webfonts Github Repo</a></li>
+<li><a href="https://github.com/Nathan-Yorio/webfont-generator-pom-fix-2023">Webfont Generator POM Fix 2023 Github Repo</a></li>
+</ul>
+<hr>
+<p>So, as it turns out, fonts don&rsquo;t work the same way everywhere. They are different sizes and different formats for different platforms.</p>
+<p>I discovered while created this static site that if I wanted to have a fancy font that supports Japanese characters, like <a href="https://fonts.google.com/noto/specimen/Noto+Sans+JP">NotoSansJP</a>, I would need to either source the font directly from Google (which would require me to rely on Google&rsquo;s resource never changing), or convert the OS level font to something that is called a &ldquo;Webfont&rdquo;.</p>
+<h4 class="center-text" id="heading"><strong>⛬</strong></h4>
+<h2 class="center-text" id="the-crux-of-the-issue-with-a-fix">The crux of the issue with a fix</h2>
+<p>Webfonts come in one of the following flavors:</p>
+<ul>
+<li>.eot</li>
+<li>.svg</li>
+<li>.ttf</li>
+<li>.woff</li>
+<li>.woff2 (electric boogaloo)</li>
+</ul>
+<p>All of these different webfont formats are designed to work with different browsers with different design considerations and eras that they were made in. In order for fonts to display correctly, you need to have at least a few of these formats come down with a webpage when it loads into a user&rsquo;s browser. As far as I can tell, <em>svg</em> is not particularly necessary (and has large file sizes to support the full glyphs it contains).</p>
+<p>Most non-web fonts can be had by downloading a corresponding OpenType font (.otf). Cool, no problem. Except getting an otf into these other webfont flavors isn&rsquo;t necessarily automatic.</p>
+<p>So, like most people, I hunted around and I was able to find one <a href="https://github.com/bdusell/webfont-generator">bdusell&rsquo;s webfont-generator</a></p>
+<p>I had to go down a bit of a rabbit hole to get all of the dependencies working for this, because it was written with a Maven version that&rsquo;s kind of out of date now.</p>
+<p>Basically it required:</p>
+<ul>
+<li><code>git</code>, <code>java</code>, <code>javac</code>,<code>mvn</code>, <code>python3</code></li>
+<li>the <code>generate-webfonts</code> script itself</li>
+</ul>
+<p>I also had to manually edit the setup shell to swap out some lines in the maven compiler to allow it to compile with a newer version, I just used <code>sed</code> to show in the new <code>1.7</code> version where it was missing and the compiler automagically did its thing.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">force_new_compiler<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  log <span style="color:#e6db74">&#39;Forcing new compiler version..&#39;</span>
+  <span style="color:#f92672">(</span>
+    cd <span style="color:#e6db74">&#34;</span>$SFNTLY_DIR<span style="color:#e6db74">&#34;</span>/java <span style="color:#f92672">&amp;&amp;</span>
+    sed -i -e <span style="color:#e6db74">&#34;s/source&gt;.*/source&gt;1.7&lt;\/maven.compiler.source&gt;/g&#34;</span> pom.xml <span style="color:#f92672">&amp;&amp;</span>
+    sed -i -e <span style="color:#e6db74">&#34;s/target&gt;.*/target&gt;1.7&lt;\/maven.compiler.target&gt;/g&#34;</span> pom.xml
+  <span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>My cloned version of bdusell&rsquo;s repository with the fix can be found <a href="https://github.com/Nathan-Yorio/webfont-generator-pom-fix-2023">here</a></p>
+<h4 class="center-text" id="heading-1"><strong>⛬</strong></h4>
+<h2 class="center-text" id="generating-the-webfonts">Generating the webfonts</h2>
+<p>I created a <a href="https://github.com/Nathan-Yorio/NotoSansJP-Webfonts">github repository</a> to host the generated webfonts, with the original google license included, which should allow for redistributed modifications.</p>
+<p>Generating the fonts after fixing the generator boiled down to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">./generate-webfonts -o assets MyFont.ttf --css MyFont.css
+</code></pre></div><p>which produced a folder of the fonts and a premade css <code>@font-face</code> styling element that I could import into my page theme.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">font-face</span> {
+  <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;NotoSansJP-Bold&#39;</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">NotoSansJP</span><span style="color:#f92672">/</span><span style="color:#f92672">NotoSansJP-Bold</span>.<span style="color:#a6e22e">eot</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">NotoSansJP</span><span style="color:#f92672">/</span><span style="color:#f92672">NotoSansJP-Bold</span>.<span style="color:#a6e22e">eot</span><span style="color:#f92672">?</span>#iefix<span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;embedded-opentype&#39;</span><span style="color:#f92672">),</span>
+        <span style="color:#f92672">url</span><span style="color:#f92672">(/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">NotoSansJP</span><span style="color:#f92672">/</span><span style="color:#f92672">NotoSansJP-Bold</span>.<span style="color:#a6e22e">woff2</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;woff2&#39;</span><span style="color:#f92672">),</span>
+        <span style="color:#f92672">url</span><span style="color:#f92672">(/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">NotoSansJP</span><span style="color:#f92672">/</span><span style="color:#f92672">NotoSansJP-Bold</span>.<span style="color:#a6e22e">woff</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;woff&#39;</span><span style="color:#f92672">),</span>
+        <span style="color:#f92672">url</span><span style="color:#f92672">(/</span><span style="color:#f92672">fonts</span><span style="color:#f92672">/</span><span style="color:#f92672">NotoSansJP</span><span style="color:#f92672">/</span><span style="color:#f92672">NotoSansJP-Bold</span>.<span style="color:#a6e22e">ttf</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;truetype&#39;</span><span style="color:#f92672">);</span>
+}
+</code></pre></div><p>I added the fonts to my theme under the path <code>/font/NotoSansJP/</code> and was able to source them at the top of my theme CSS exactly as above.</p>
+<p>And now the rabbit hole I jumped down just to be able to type:</p>
+<ul>
+<li>おはようございます！</li>
+</ul>
+<p>Has been immortalized in the form of a post that hopefully will benefit somebody with a similar issue.</p>
+<p>Have a nice day ~</p>
+<p>-N</p>
+<h2 id="references-for-this-post">References for this post</h2>
+<p><a href="https://github.com/ericmurphyxyz/hugo-starter-theme">GitHub - ericmurphyxyz/hugo-starter-theme: Simple starter theme for Hugo</a><br>
+<a href="https://www.youtube.com/watch?v=wcMqrb3v2SM">Creating your own Hugo Theme! - YouTube</a><br>
+<a href="https://gohugo.io/templates/homepage/">Homepage Template | Hugo</a><br>
+<a href="https://gohugo.io/variables/page/">Page Variables | Hugo</a><br>
+<a href="https://gohugo.io/getting-started/quick-start/">Quick Start | Hugo</a><br>
+<a href="https://stackoverflow.com/questions/17129891/remove-white-space-on-ul-with-css">html - Remove white space on ul with css - Stack Overflow</a><br>
+<a href="https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css">How To Load and Use Custom Fonts with CSS | DigitalOcean</a></p>
+
+</main>
+        
+
+<footer>
+	<p class="footer-text">
+		
+		nathanyor.io - 2023 
+	</p>
+</footer>
+
+
+    </body>
+</html>
