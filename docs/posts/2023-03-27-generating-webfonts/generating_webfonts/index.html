@@ -78,7 +78,7 @@
 <li><code>git</code>, <code>java</code>, <code>javac</code>,<code>mvn</code>, <code>python3</code></li>
 <li>the <code>generate-webfonts</code> script itself</li>
 </ul>
-<p>I also had to manually edit the setup shell to swap out some lines in the maven compiler to allow it to compile with a newer version, I just used <code>sed</code> to show in the new <code>1.7</code> version where it was missing and the compiler automagically did its thing.</p>
+<p>I also had to manually edit the setup shell to swap out some lines in the maven compiler to allow it to compile with a newer version, I just used <code>sed</code> to shove in the new <code>1.7</code> version where it was missing and the compiler automagically did its thing.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">force_new_compiler<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
   log <span style="color:#e6db74">&#39;Forcing new compiler version..&#39;</span>
   <span style="color:#f92672">(</span>

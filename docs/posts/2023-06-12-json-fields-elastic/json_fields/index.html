@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	
+	<title>JSON Fields with Filebeat for Snort | nathanyor.io</title>
+
+	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+
+	</head>
+
+
+
+
+    <body> 
+        <header class="site-header">
+    <nav class="site-nav">
+      
+
+      
+      <ul class="main-menu">
+        
+        <a class="home-button" href="https://nathanyor.io">HOME</a>
+        
+        
+        <li class="menu-buttons">
+          <a href="/posts">POSTS</a>
+        </li>
+        
+        <li class="menu-buttons">
+          <a href="/tags">TAGS</a>
+        </li>
+        
+        <li class="menu-buttons">
+          <a href="/about">ABOUT</a>
+        </li>
+        
+      </ul>
+    </nav>
+</header>
+
+
+        <div class="title-text">
+    <h1>JSON Fields with Filebeat for Snort</h1>
+</div>
+        
+<main class="content">
+    
+    <figure class="centerfig"><img src="../media/zuck-logs.png"
+         alt="zuccin-some-logs" width="400" height="220"/>
+</figure>
+
+<h2 class="center-text" id="premise">Premise</h2>
+<p>There are some scenarios where there are simply no premade ingest pipelines for some log formats, even log formats that one would think have something perfectly simple premade for them. It&rsquo;s incredibly easy to tell a tool, such as Snort, to output logs in JSON format and then have filebeat automatically decode those logs using a built in JSON decoder.</p>
+<p>This came up for me when I was trying to pull out some meaningful fields from snort with a simple Filebeat and Elastic index setup in my GNS3 lab, which doesn&rsquo;t have access to fancy enterprise things like Elastic Agent.</p>
+<p>This post makes some assumptions that Snort&rsquo;s already installed and configuring it basically is already understood.</p>
+<h4 class="center-text" id="heading"><strong>⛬</strong></h4>
+<h2 class="center-text" id="parse-snort-logs-as-json">Parse snort logs as json</h2>
+<p>The folks who create Snort having written a bit about this on <a href="https://blog.snort.org/2017/11/snort-30-with-elasticsearch-logstash.html">their blog</a>, but I&rsquo;d argue it&rsquo;s a bit too general to get a good idea how it might be applied in practice.</p>
+<ul>
+<li>add the following to snort.lua In order to get it spitting out logs in preformatted JSON</li>
+<li>there are more fields than this, they can be found in the Snort reference, might be different depending on Snort version used</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua">alert_json <span style="color:#f92672">=</span>
+{file <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>,
+fields <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;timestamp pkt_num proto pkt_gen pkt_len dir src_addr src_port dst_addr dst_port service rule priority class action b64_data&#39;</span>,
+}
+</code></pre></div><ul>
+<li>change filebeat.yml such that it only sends the json</li>
+<li>point it at wherever the snort alerts are being generated, probably in <code>/var/log/something</code> for most people</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">filebeat.inputs</span>:
+- <span style="color:#f92672">type</span>: <span style="color:#ae81ff">filestream</span>
+
+  <span style="color:#f92672">id</span>: <span style="color:#ae81ff">filebeat-firewall</span>
+  <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">paths</span>:
+    - <span style="color:#ae81ff">/var/log/snort/alert_json.txt</span>
+</code></pre></div><ul>
+<li>here&rsquo;s some sample JSON that should be inside of an alert log when it starts generating content, look at the nice fields <em>ahhh</em></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON">{ <span style="color:#f92672">&#34;timestamp&#34;</span> : <span style="color:#e6db74">&#34;05/10-12:59:30.263657&#34;</span>, 
+<span style="color:#f92672">&#34;pkt_num&#34;</span> : <span style="color:#ae81ff">30</span>, 
+<span style="color:#f92672">&#34;proto&#34;</span> : <span style="color:#e6db74">&#34;ICMP&#34;</span>, 
+<span style="color:#f92672">&#34;pkt_gen&#34;</span> : <span style="color:#e6db74">&#34;raw&#34;</span>, 
+<span style="color:#f92672">&#34;pkt_len&#34;</span> : <span style="color:#ae81ff">84</span>, 
+<span style="color:#f92672">&#34;dir&#34;</span> : <span style="color:#e6db74">&#34;C2S&#34;</span>, 
+<span style="color:#f92672">&#34;src_addr&#34;</span> : <span style="color:#e6db74">&#34;10.10.30.2&#34;</span>, 
+<span style="color:#f92672">&#34;dst_addr&#34;</span> : <span style="color:#e6db74">&#34;172.16.30.2&#34;</span>, 
+<span style="color:#f92672">&#34;service&#34;</span> : <span style="color:#e6db74">&#34;unknown&#34;</span>, 
+<span style="color:#f92672">&#34;rule&#34;</span> : <span style="color:#e6db74">&#34;1:384:8&#34;</span>, 
+<span style="color:#f92672">&#34;priority&#34;</span> : <span style="color:#ae81ff">3</span>, 
+<span style="color:#f92672">&#34;class&#34;</span> : <span style="color:#e6db74">&#34;Misc activity&#34;</span>, 
+<span style="color:#f92672">&#34;action&#34;</span> : 
+<span style="color:#e6db74">&#34;allow&#34;</span>, 
+<span style="color:#f92672">&#34;b64_data&#34;</span> : <span style="color:#e6db74">&#34;SomeB64StringHereForTheLogLines&#34;</span> }
+</code></pre></div><h2 class="center-text" id="the-important-step">The important step</h2>
+<ul>
+<li>
+<p>Take a peep at the <a href="https://www.elastic.co/guide/en/beats/filebeat/current/decode-json-fields.html">filebeat reference documentation</a> for a better explanation than I could give for how this part works.</p>
+</li>
+<li>
+<p>add json processor to filebeat config to dump out the json lines into proper fields</p>
+<ul>
+<li>max depth is never more than one line</li>
+<li>dumps decoded fields into the decoded subfield</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"> <span style="color:#f92672">processors</span>:
+    - <span style="color:#f92672">decode_json_fields</span>:
+        <span style="color:#f92672">fields</span>: [<span style="color:#e6db74">&#34;message&#34;</span>]
+        <span style="color:#f92672">max_depth</span>: <span style="color:#ae81ff">1</span>
+        <span style="color:#f92672">target</span>: <span style="color:#e6db74">&#34;decoded&#34;</span>
+        <span style="color:#f92672">overwrite_keys</span>: <span style="color:#66d9ef">false</span>
+        <span style="color:#f92672">add_error_key</span>: <span style="color:#66d9ef">true</span>
+</code></pre></div><ul>
+<li>and in the module for snort as well (which isn&rsquo;t actually necessary in this case since my logs are already in JSON, but maybe you&rsquo;re using the Snort module for some reason)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">    <span style="color:#75715e"># Set paths for the log files when file input is used.</span>
+    <span style="color:#f92672">var.paths</span>: [<span style="color:#e6db74">&#34;/var/log/snort/alert_json.txt&#34;</span>]
+
+    <span style="color:#75715e"># Toggle output of non-ECS fields (default true).</span>
+</code></pre></div><h2 class="center-text" id="result">Result</h2>
+<ul>
+<li>bask in the glory of your easy clean fields. This principal can be applied to just about any JSON logs, but will need the <code>max_depth</code> adjusted if they happen to be nested or more complex than this.</li>
+</ul>
+<figure class="centerfig"><img src="../media/elastic_with_fields.png"
+         alt="zuccin-some-logs" width="250" height="200"/>
+</figure>
+
+<p>Cheers ~</p>
+<p>-N</p>
+<h2 id="references-for-this-post">References for this post</h2>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/decode-json-fields.html">Decode JSON fields | Filebeat Reference [8.7] | Elastic</a></li>
+<li><a href="https://blog.snort.org/2017/11/snort-30-with-elasticsearch-logstash.html">Snort Blog: Snort 3.0 with ElasticSearch, LogStash, and Kibana (ELK)</a></li>
+</ul>
+
+</main>
+        
+
+<footer>
+	<p class="footer-text">
+		
+		nathanyor.io - 2023 
+	</p>
+</footer>
+
+
+    </body>
+</html>

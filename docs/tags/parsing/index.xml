@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>parsing on nathanyor.io</title>
+    <link>https://nathanyor.io/tags/parsing/</link>
+    <description>Recent content in parsing on nathanyor.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Jun 2023 11:07:04 +0300</lastBuildDate><atom:link href="https://nathanyor.io/tags/parsing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JSON Fields with Filebeat for Snort</title>
+      <link>https://nathanyor.io/posts/2023-06-12-json-fields-elastic/json_fields/</link>
+      <pubDate>Mon, 12 Jun 2023 11:07:04 +0300</pubDate>
+      
+      <guid>https://nathanyor.io/posts/2023-06-12-json-fields-elastic/json_fields/</guid>
+      <description>Premise There are some scenarios where there are simply no premade ingest pipelines for some log formats, even log formats that one would think have something perfectly simple premade for them. It&amp;rsquo;s incredibly easy to tell a tool, such as Snort, to output logs in JSON format and then have filebeat automatically decode those logs using a built in JSON decoder.
+This came up for me when I was trying to pull out some meaningful fields from snort with a simple Filebeat and Elastic index setup in my GNS3 lab, which doesn&amp;rsquo;t have access to fancy enterprise things like Elastic Agent.</description>
+    </item>
+    
+  </channel>
+</rss>
