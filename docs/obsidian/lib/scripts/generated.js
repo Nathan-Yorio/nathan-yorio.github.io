@@ -1,0 +1,1 @@
+let nodes={paths:["bookmarks/bookmarks-elastic.html","bookmarks/moc-bookmarks.html","home.html"],nodeCount:3,linkSources:[0,1],linkTargets:[2,0],labels:["Bookmarks - Elastic","MOC - Bookmarks","Home"],radii:[7,6.4375,6.4375],linkCount:2},attractionForce=1,linkLength=10,repulsionForce=150,centralForce=3,edgePruning=100

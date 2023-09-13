@@ -6,7 +6,17 @@
     <description>Recent content in Home on nathanyor.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Jun 2023 11:07:04 +0300</lastBuildDate><atom:link href="https://nathanyor.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Sep 2023 13:25:39 +0300</lastBuildDate><atom:link href="https://nathanyor.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obsidian Static Pages</title>
+      <link>https://nathanyor.io/posts/2023-09-12-adding-obsidian-notes-as-static-pages-to-hugo/obsidian-static-pages/</link>
+      <pubDate>Tue, 12 Sep 2023 13:25:39 +0300</pubDate>
+      
+      <guid>https://nathanyor.io/posts/2023-09-12-adding-obsidian-notes-as-static-pages-to-hugo/obsidian-static-pages/</guid>
+      <description>I recently became aware of a plugin for Obsidian which allows one to generate static web pages from the content of an Obsidian vault. The plugin is called Webpage HTML Export and it is still in active development, but it begins to fill the gap that Obsidian Publish does not fill for those who wish to host the content themselves.
+I then thought that perhaps I could integrate these static pages into my static Hugo site and I wanted to document how that process was for me.</description>
+    </item>
+    
     <item>
       <title>JSON Fields with Filebeat for Snort</title>
       <link>https://nathanyor.io/posts/2023-06-12-json-fields-elastic/json_fields/</link>
